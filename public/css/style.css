@@ -1,0 +1,189 @@
+body {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #e1bee7, #ce93d8);
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #6a1b9a, #8e24aa);
+      padding: 16px;
+      text-align: center;
+      color: #fff;
+    }
+    h1 { margin: 0; }
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+    @media(max-width:768px){
+      .wrap { grid-template-columns:1fr; }
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #6a1b9a;
+      border-bottom: 2px dashed #ab47bc;
+      padding-bottom: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #ba68c8;
+      color: #fff;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 14px;
+      background: #8e24aa;
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #6a1b9a; }
+    .delete-btn {
+      background: #e53e3e;
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+    .delete-btn:hover { background: #c53030; }
+    input[type="text"], input[type="number"] {
+      margin: 4px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: calc(100% - 20px);
+    }
+    #reader {
+      width: 100%;
+      height: 260px;
+      border: 2px dashed #8e24aa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .storage-info {
+      background: #d4edda;
+      color: #155724;
+      padding: 8px;
+      border-radius: 4px;
+      margin: 8px 0;
+      font-size: 12px;
+      text-align: center;
+    }
+    /* ===== LOGIN PAGE STYLE ===== */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  background: #fff;
+  padding: 30px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.login-card h2 {
+  color: #6a1b9a;
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.login-card a {
+  display: block;
+  margin-top: 12px;
+  text-decoration: none;
+  color: #6a1b9a;
+  font-size: 14px;
+}
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000;
+}
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #bd45b7, #831686);
+  padding: 12px 25px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-left h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-text {
+  font-size: 14px;
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+}

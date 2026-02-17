@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-left">
+      <h2>📦 Inventory System</h2>
+    </div>
+
+    <div class="nav-right">
+      <span class="welcome-text">
+        Welcome, <strong><%= user %></strong>
+      </span>
+
+      <a href="/logout">
+        <button class="logout-btn">Logout</button>
+      </a>
+    </div>
+  </nav>
+
+      <div class="wrap">
+    <div class="card">
+      <h2>Inventory</h2>
+      <div class="storage-info">💾 Inventory is automatically saved and will persist after page refresh</div>
+      <input type="text" id="sku" placeholder="SKU"><br>
+      <input type="text" id="name" placeholder="Item Name"><br>
+      <input type="number" id="price" placeholder="Price"><br>
+      <button onclick="addInventory()">Add Item</button>
+
+      <button onclick="clearAllInventory()" style="background: #e53e3e;">Clear All Data</button>
+      <table id="inventoryTable">
+        <thead>
+          <tr>
+            <th>SKU</th><th>Name</th><th>Price</th><th>Add</th><td>
+  <button onclick="deleteInventoryItem('${item.sku}')">
+    Delete
+  </button>
+</td>
+
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="card" id="billArea">
+      <h2>Cart / Bill</h2>
+      
+      <div style="margin-bottom:12px;">
+        <input type="text" id="custName" placeholder="Customer Name" style="margin:4px; padding:6px; width:48%;">
+        <input type="text" id="custMobile" placeholder="Mobile Number" style="margin:4px; padding:6px; width:48%;"><br>
+        
+        <label><input type="radio" name="payMode" value="Cash" checked> Cash</label>
+        <label><input type="radio" name="payMode" value="Card"> Card</label>
+        <label><input type="radio" name="payMode" value="UPI"> UPI</label>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th><th>SKU</th><th>Qty</th><th>Price</th><th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cartTable"></tbody>
+      </table>
+      <h3>Total: ₹ <span id="grandTotal">0</span></h3>
+      <button onclick="printBill()">🖨 Print Bill</button>
+      <button onclick="refreshCart()">🔄 Refresh Cart</button>
+    </div>
+    
+  </div>
+
+  <div class="card" style="margin:16px;">
+    <h2>Barcode Scanner</h2>
+    <input type="text" id="barcodeInput" placeholder="Enter SKU manually">
+<button onclick="manualBarcode()">Add</button><br><br>
+    <button onclick="startScanner()">Start Scanner</button>
+    <button onclick="stopScanner()">Stop Scanner</button>
+    
+    <div id="reader">Camera preview will appear here</div>
+  </div>
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="/js/app.js"></script>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>
