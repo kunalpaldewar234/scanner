@@ -36,15 +36,36 @@ app.get("/register", (req, res) => {
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  if (!username || !password) {
+    return res.send("All fields required");
+  }
 
-  const sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-
-  db.query(sql, [username, hashedPassword], (err) => {
+  // Step 1: Check if username already exists
+  db.query("SELECT * FROM users WHERE username = ?", [username], async (err, result) => {
     if (err) {
+      console.log(err);
+      return res.send("Database error");
+    }
+
+    if (result.length > 0) {
       return res.send("Username already exists");
     }
-    res.redirect("/login");
+
+    // Step 2: Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Step 3: Insert new user
+    db.query(
+      "INSERT INTO users (username, password) VALUES (?, ?)",
+      [username, hashedPassword],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+          return res.send("Database error");
+        }
+        res.redirect("/login");
+      }
+    );
   });
 });
 
